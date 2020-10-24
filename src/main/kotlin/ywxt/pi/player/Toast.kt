@@ -44,6 +44,7 @@ class Toast(private val mOwner: JFrame, val duration: Int = SHORT) : JDialog(mOw
 
     override fun setForeground(foregroundColor: Color) {
         mForegroundColor = foregroundColor
+        label.foreground = foreground
     }
 
     fun display() {
