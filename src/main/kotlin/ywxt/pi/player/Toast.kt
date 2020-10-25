@@ -32,14 +32,14 @@ class Toast(private val mOwner: JFrame, val duration: Int = SHORT) : JDialog(mOw
                 return Point(x, y)
             }
             val x = (ownerLoc.getX() + (mOwner.width - width) / 2).toInt()
-            val y = (ownerLoc.getY() + mOwner.height / 2).toInt()
+            val y = (ownerLoc.getY() + (mOwner.height - this.height) / 2).toInt()
             return Point(x, y)
         }
 
-    fun setText(text: String?) {
+    fun setText(text: String) {
         mText = text
         label.text = text
-        setSize(mText!!.length * CHARACTER_LENGTH_MULTIPLIER, 150)
+        setSize(text.length * CHARACTER_LENGTH_MULTIPLIER, 150)
     }
 
     override fun setForeground(foregroundColor: Color) {
