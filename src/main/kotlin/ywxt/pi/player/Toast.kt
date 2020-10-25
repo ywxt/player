@@ -81,7 +81,7 @@ class Toast(private val mOwner: JFrame, val duration: Int = SHORT) : JDialog(mOw
         /**
          * The Constant SHORT Set the longest time to display the toast
          */
-        const val LONG = 6000
+        const val LONG = 4000
 
         /**
          * The Constant ERROR Set the color red to display the toast

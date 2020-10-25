@@ -5,7 +5,7 @@ import javax.swing.JFrame
 import javax.swing.JPanel
 
 fun main() {
-    val window = KFrame("hello")
+    val window = JFrame("hello")
     window.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
     window.isVisible = true
     val content = JPanel()
