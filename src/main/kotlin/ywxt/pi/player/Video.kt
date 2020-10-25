@@ -1,6 +1,7 @@
 package ywxt.pi.player
 
 import com.google.gson.GsonBuilder
+import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.StandardOpenOption
@@ -18,10 +19,14 @@ data class ConfigFile(
     /**
      * 当前播放位置
      */
-    var currentPosition: Int,
+    var currentPosition: Float = 0f,
+
+    var volume: Int = 60,
 ) {
     companion object {
         fun load(path: String = "./config.json"): ConfigFile {
+            val file = File(path)
+            if (!file.exists()) return ConfigFile("")
             val config = Files.readString(Path.of(path, ""))
             return GsonBuilder().create().fromJson(config)
         }
