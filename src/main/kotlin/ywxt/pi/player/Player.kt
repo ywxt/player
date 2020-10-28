@@ -25,10 +25,7 @@ class Player(windowTitle: String, path: String) : AutoCloseable {
     private var currentPosition: Float
 
     private val started = false
-    private val saveConfigThread = Thread {
-        config.save()
-        Thread.sleep(2000)
-    }
+
 
 
     var volume: Int
@@ -49,6 +46,10 @@ class Player(windowTitle: String, path: String) : AutoCloseable {
         } else {
             currentPosition = config.currentPosition
         }
+    }
+
+    private fun saveConfig() {
+        config.save()
     }
 
     fun show() {
@@ -145,7 +146,6 @@ class Player(windowTitle: String, path: String) : AutoCloseable {
                 }
 
             })
-            saveConfigThread.start()
         }
         volume = config.volume
         play(playingList[currentIndex], currentPosition)
@@ -206,6 +206,7 @@ class Player(windowTitle: String, path: String) : AutoCloseable {
         volumeToast.dispose()
         titleToast.dispose()
         frame.dispose()
+        saveConfig()
     }
 
     private fun loadDirectory(path: String): List<Video> {
