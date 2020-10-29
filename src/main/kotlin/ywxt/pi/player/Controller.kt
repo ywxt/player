@@ -17,6 +17,11 @@ interface Controller {
 
     fun onSwitchPlaying(event: () -> Unit)
 
+    companion object {
+        fun ofKeyboard(frame: JFrame): Controller = KeyboardController(frame)
+
+    }
+
 }
 
 class KeyboardController(frame: JFrame) : Controller {
@@ -70,6 +75,33 @@ class KeyboardController(frame: JFrame) : Controller {
 
     override fun onSwitchPlaying(event: () -> Unit) {
         switchPlaying = event
+    }
+
+}
+
+class InfraredRemoteController : Controller {
+    override fun onShutdown(event: () -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPlayNext(event: () -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPlayPrevious(event: () -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onVolumeUp(event: () -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onVolumeDown(event: () -> Unit) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSwitchPlaying(event: () -> Unit) {
+        TODO("Not yet implemented")
     }
 
 }
